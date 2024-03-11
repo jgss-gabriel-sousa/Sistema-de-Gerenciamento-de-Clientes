@@ -20,3 +20,4 @@ npm run start
 * express
 * mathjs
 * pg-promise
+* nodemon (Desenvolvimento)
