@@ -10,3 +10,5 @@ Inicialização do servidor:
 ```
 npm run start
 ```
+
+## Dependências:
