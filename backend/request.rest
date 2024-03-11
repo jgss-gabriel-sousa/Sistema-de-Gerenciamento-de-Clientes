@@ -1,0 +1,22 @@
+POST http://localhost:8080/register
+Content-Type: application/json
+
+{
+    "name": "Gabriel",
+    "email": "jggbrgames@gmail.com",
+    "phone": "96032551",
+    "coord_x": 10,
+    "coord_y": 10
+}
+
+###
+GET http://localhost:5050/
+Content-Type: application/json
+
+{
+    "name": " test",
+    "email": "tes",
+    "phone": "test",
+}
+
+###
