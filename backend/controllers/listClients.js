@@ -21,8 +21,13 @@ const listClients = async (req, res) => {
             values.push(phone);
             query += "AND telefone = $" + values.length;
         }
-        
-        const clients = await db.oneOrNone(query, values);
+		
+        let clients;
+		
+		if(name || email || phone)
+			clients = await db.oneOrNone(query, values);
+		else
+			clients = await db.query("SELECT * FROM clientes");
         
         return clients ? res.status(200).json(clients) : res.status(404);
     
