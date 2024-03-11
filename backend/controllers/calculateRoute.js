@@ -32,7 +32,7 @@ const calculateRoute = async (req, res) => {
             return nearestNeighbor;
         }
 
-        const route = [{ id: 0, company: "Facilita Jurídico", email: "facilita.juridico@facilita.juridico", phone: "99 99999999", x: 0, y: 0 }];
+        const route = [{ id: 0, name: "Facilita Jurídico", email: "facilita.juridico@facilita.juridico", phone: "99 99999999", x: 0, y: 0 }];
         let currentPoint = { x: 0, y: 0 }
 
         while (coordinates.length > 0) {
@@ -42,7 +42,7 @@ const calculateRoute = async (req, res) => {
             coordinates.splice(coordinates.findIndex((point) => point.id === nearestNeighbor.id), 1);
         }
 
-        route.push({ id: 0, company: "Facilita Jurídico", email: "facilita.juridico@facilita.juridico", phone: "99 99999999", x: 0, y: 0 });
+        route.push({ id: 0, name: "Facilita Jurídico", email: "facilita.juridico@facilita.juridico", phone: "99 99999999", x: 0, y: 0 });
 
         return res.status(200).json(route);
 
