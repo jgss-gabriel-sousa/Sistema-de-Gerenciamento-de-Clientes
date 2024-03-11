@@ -5,9 +5,8 @@ const password = process.env.DB_PASSWORD;
 const port = process.env.DB_PORT;
 const host = process.env.DB_HOST;
 const user = process.env.DB_USER;
-const database = process.env.DB_NAME;
 
-const db = pgp(`postgres://${user}:${password}@${host}:${port}/${database}`);
+const db = pgp(`postgres://${user}:${password}@${host}:${port}/gerenciamento-clientes`);
 
 const filePath = join(__dirname, "create-table.sql");
 const query = new pgp.QueryFile(filePath);

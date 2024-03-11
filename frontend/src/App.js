@@ -5,7 +5,7 @@ import ClientForm from './components/ClientForm';
 import ClientRoute from './components/ClientRoute';
 
 function App() {
-    const apiURL = 'http://localhost:8080';
+    const apiURL = 'http://localhost:5000';
     const [clients, setClients] = useState([]);
     const [filterName, setFilterName] = useState('');
     const [filterPhone, setFilterPhone] = useState('');
