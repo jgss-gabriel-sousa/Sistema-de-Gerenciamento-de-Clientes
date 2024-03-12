@@ -1,7 +1,7 @@
 CREATE DATABASE "gerenciamento-clientes";
 
 CREATE TABLE clientes (
-	id 			SERIAL PRIMARY KEY,
+	id		SERIAL PRIMARY KEY,
 	nome 		varchar(50) NOT NULL, 
 	email 		varchar(200) NOT NULL,
 	telefone 	varchar(20) NOT NULL,
