@@ -37,41 +37,41 @@ const calculateRoute = async (req, res) => {
             }
         }
 
-        function calculateDijkstra(graph, origem) {
-            const distancias = {};
-            const visitados = new Set();
+        function calculateDijkstra(graph, source) {
+            const distances = {};
+            const visited = new Set();
         
             // Inicialização das distâncias com infinito, exceto a origem que é zero
-            for (let v in graph) {
-                distancias[v] = Infinity;
+            for (let vertex in graph) {
+                distances[vertex] = Infinity;
             }
-            distancias[origem] = 0;
+            distances[source] = 0;
         
-            while (visitados.size !== Object.keys(distancias).length) {
+            while (visited.size !== Object.keys(distances).length) {
                 // Encontra o vértice não visitado com menor distância atual
-                let verticeAtual = null;
-                let menorDistancia = Infinity;
-                for (let v in graph) {
-                    if (!visitados.has(v) && distancias[v] < menorDistancia) {
-                        verticeAtual = v;
-                        menorDistancia = distancias[v];
+                let currentVertex = null;
+                let shortestDistance = Infinity;
+                for (let vertex in graph) {
+                    if (!visited.has(vertex) && distances[vertex] < shortestDistance) {
+                        currentVertex = vertex;
+                        shortestDistance = distances[vertex];
                     }
                 }
         
                 // Marca o vértice atual como visitado
-                visitados.add(verticeAtual);
+                visited.add(currentVertex);
         
                 // Atualiza as distâncias dos vértices vizinhos
-                for (let vizinho in graph[verticeAtual]) {
-                    const peso = graph[verticeAtual][vizinho];
-                    if (distancias[verticeAtual] + peso < distancias[vizinho]) {
-                        distancias[vizinho] = distancias[verticeAtual] + peso;
+                for (let neighbor in graph[currentVertex]) {
+                    const weight = graph[currentVertex][neighbor];
+                    if (distances[currentVertex] + weight < distances[neighbor]) {
+                        distances[neighbor] = distances[currentVertex] + weight;
                     }
                 }
             }
         
             // Retorna as distâncias mais curtas a partir da origem
-            return distancias;
+            return distances;
         }
 
         const result = calculateDijkstra(graph, "0");
